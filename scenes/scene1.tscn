@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 627.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 583, 166 )
+position = Vector2( 651, 491 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+current = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 539, 572 )
-shape = SubResource( 1 )
+[connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]

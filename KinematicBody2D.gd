@@ -1,29 +1,28 @@
 extends KinematicBody2D
 
-var speed = 40
-var jumpForce = 400
-var gravity = 400
+export (int) var speed = 200
 
-var vel = Vector2()
+onready var imagePlayer = get_node("AnimatedSprite")
 
-onready var imagePlayer = get_node("Sprite")
+var velocity = Vector2()
 
-# warning-ignore:unused_argument
+func get_input():
+	velocity = Vector2()
+	if Input.is_action_pressed("right"):
+		velocity.x += 1
+	if Input.is_action_pressed("left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("down"):
+		velocity.y += 1
+	if Input.is_action_pressed("up"):
+		velocity.y -= 1
+	velocity = velocity.normalized() * speed
+
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_left"):
-		vel.x -= speed
-	elif Input.is_action_pressed("ui_right"):
-		vel.x += speed
+	get_input()
+	velocity = move_and_slide(velocity)
 
-	vel.y += gravity * delta
-
-	if Input.is_action_pressed("ui_up") and is_on_floor():
-		vel.y -= jumpForce
-
-	vel = move_and_slide(vel, Vector2.UP)
-	vel.x = lerp(vel.x, 0, 0.2)
-
-	if vel.x > 0:
-		imagePlayer.flip_h = true
-	elif vel.x < 0:
-		imagePlayer.flip_h = false
+if velocity.x > 0:
+	imagePlayer.flip_h = true
+elif velocity.x < 0:
+	imagePlayer.flip_h = false

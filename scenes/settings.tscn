@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://textures/Без имени3.png" type="Texture" id=1]
+[ext_resource path="res://textures/Без имени4.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Miratrix/Miratrix-Normal.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://textures/Без имени6.png" type="Texture" id=4]
+[ext_resource path="res://textures/Без имени7.png" type="Texture" id=5]
+[ext_resource path="res://textures/Без имени5.png" type="Texture" id=6]
+[ext_resource path="res://scenes/settings.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 603.0
+color = Color( 0, 0.0392157, 1, 0.427451 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1023.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 1 )
+text = "Pl     izm"
+align = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 427, 119 )
+rotation = -0.115192
+scale = Vector2( 0.831429, 0.835 )
+frames = SubResource( 2 )
+frame = 3
+playing = true
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 283.0
+margin_top = 449.0
+margin_right = 682.0
+margin_bottom = 503.0
+custom_fonts/font = SubResource( 3 )
+text = "Обратно в меню"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed5"]

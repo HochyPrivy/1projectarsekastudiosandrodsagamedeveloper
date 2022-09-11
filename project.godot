@@ -14,11 +14,15 @@ config/name="Minj & Chroni"
 run/main_scene="res://scenes/menu.tscn"
 boot_splash/image="res://textures/бля ебаная автозагруска.png"
 boot_splash/bg_color=Color( 0.176471, 0.176471, 0.176471, 1 )
-config/icon="res://system/icon.png"
+config/icon="res://textures/icon.png"
 
 [autoload]
 
 SceneChanger="*res://loadingbar/SceneChanger.gd"
+
+[display]
+
+window/size/borderless=true
 
 [gui]
 
