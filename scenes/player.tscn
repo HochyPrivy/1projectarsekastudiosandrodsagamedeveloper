@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://textures/1662802001597.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ebed65cc89fd6167_3.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -11,14 +11,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 40 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 5, 3 )
+position = Vector2( 22, -1 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( -5.68434e-14, 3 )
-rotation = -0.115192
-polygon = PoolVector2Array( 21.69, 38.7498, 25, 31, 28.9145, 28.5123, 37.666, 22.4782, 46.0728, 19.4242, 51.0396, 19.9989, 52, 15, 54, 0, 53, -7, 31.1887, -34.6449, 6.28048, -45.5802, -11.7152, -46.6557, -28, -44, -32, -36, -33, -26, -43.5196, 2.01131, -35.1211, 25.1298, -35, 28, -33, 32, 19, 38 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

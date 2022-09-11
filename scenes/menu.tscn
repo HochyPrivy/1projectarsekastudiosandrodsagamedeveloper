@@ -89,7 +89,7 @@ position = Vector2( 452, 119 )
 rotation = -0.115192
 scale = Vector2( 0.831429, 0.835 )
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Button3" type="Button" parent="."]
